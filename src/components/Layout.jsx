@@ -19,8 +19,8 @@ const Layout = () => {
     <div className={`duration-500 w-full fixed ${isOpen ? 'left-[300px]' : 'left-[60px]'}`}>
         <Routes>
             {/* <Route index element={<Home/>}/> */}
-            <Route path='dashboard' element={<Home isOpen={isOpen}/>}/>
-            <Route path='guide' element={<Guide/>}/>
+            <Route path='home' element={<Home isOpen={isOpen}/>}/>
+            <Route path='guide' element={<Guide isOpen={isOpen}/>}/>
             <Route path='locate' element={<Locate/>}/>
         </Routes>
     </div>

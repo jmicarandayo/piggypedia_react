@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-import { IoNotificationsOutline, IoChevronDownSharp } from "react-icons/io5";
+import { IoChevronDownSharp } from "react-icons/io5";
+import TopBar from '../components/TopBar';
 
 const Home = ({isOpen}) => {
     const [ show, setShow ] = useState(false);
@@ -8,18 +9,7 @@ const Home = ({isOpen}) => {
   return (
     <div className='h-screen bg-[#F2F7F5]'>
         <div className={`duration-500 ${isOpen ? 'w-[calc(100vw-300px)]' : 'w-[calc(100vw-60px)]'}`}>
-            <div className='flex justify-between items-center bg-white py-4 px-10 shadow-md'>
-                <h1 className='text-[#2E6943] text-3xl font-bold'>Home</h1>
-                <div className='flex items-center'>
-                    <span className='cursor-pointer'><IoNotificationsOutline size={25}/></span>
-                    <div className='hover:bg-[#F2F7F5] group cursor-pointer py-2 px-6 ml-2 text-[#2E6943] flex gap-4 items-center'>
-                        <div className='h-[40px] w-[40px] bg-[#F2F7F5] group-hover:bg-white flex justify-center items-center rounded-full'>
-                            JD
-                        </div>
-                        <span>John Doe</span>
-                    </div>
-                </div>
-            </div>
+            <TopBar/>
             <div className='w-full'>
                 <div className='m-20'>
                     <div className='bg-white p-6'>
@@ -35,7 +25,7 @@ const Home = ({isOpen}) => {
                                 <div className='px-6'>
                                     <span className='text-gray-400'>Unifeeds</span>
                                     <div className={`duration-300 ${show ? 'visible' : 'hidden'}`}>
-                                        <p className={`duration-300 py-4 ${show ? 'opacity-100' : 'opacity-0 '}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit laudantium asperiores alias atque dolore reiciendis, repellendus molestiae voluptas sunt earum numquam possimus debitis laboriosam ea tenetur odio. Veritatis, ipsa culpa!</p>
+                                        <p className={`duration-300 py-2 ${show ? 'opacity-100' : 'opacity-0 '}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit laudantium asperiores alias atque dolore reiciendis, repellendus molestiae voluptas sunt earum numquam possimus debitis laboriosam ea tenetur odio. Veritatis, ipsa culpa!</p>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +40,7 @@ const Home = ({isOpen}) => {
                                 <div className='px-6'>
                                     <span className='text-gray-400'>Unifeeds</span>
                                     <div className={`duration-300 ${show ? 'visible' : 'hidden'}`}>
-                                        <p className={`duration-300 py-4 ${show ? 'opacity-100' : 'opacity-0 '}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit laudantium asperiores alias atque dolore reiciendis, repellendus molestiae voluptas sunt earum numquam possimus debitis laboriosam ea tenetur odio. Veritatis, ipsa culpa!</p>
+                                        <p className={`duration-300 py-2 ${show ? 'opacity-100' : 'opacity-0 '}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit laudantium asperiores alias atque dolore reiciendis, repellendus molestiae voluptas sunt earum numquam possimus debitis laboriosam ea tenetur odio. Veritatis, ipsa culpa!</p>
                                     </div>
                                 </div>
                             </div>
