@@ -23,7 +23,7 @@ const TopBar = () => {
                         <IoChevronDownSharp size={20} className={`text-[#2E6943] cursor-pointer duration-200 ml-2 ${openDropdown && '-rotate-180'}`}/>
                         
                     </div>
-                    <div className={`duration-200 ease-in-out z-10 ${openDropdown ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className={!openDropdown && 'hidden'}>
                             <Dropdown />
                     </div>
                 </div>

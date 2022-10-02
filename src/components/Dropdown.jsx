@@ -3,7 +3,7 @@ import { IoAddOutline, IoPersonSharp, IoLogOutSharp } from "react-icons/io5";
 
 const Dropdown = () => {
   return (
-    <div className=''>
+    <div>
         <div className='text-[#2E6943] absolute bg-white left-auto right-0 w-[240px] py-4 px-2 mt-[45px] shadow-md rounded-md'>
             <span className='px-4'>John Doe</span>
             <ul className='border-y border-gray-300 my-4 py-2'>

@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from '../pages/Home';
 import Guide from '../pages/Guide';
 import Locate from '../pages/Locate';
+import Compute from '../pages/Compute';
 
 const Layout = () => {
     const [ isOpen, setIsOpen ] = useState(true);
@@ -21,7 +22,8 @@ const Layout = () => {
             {/* <Route index element={<Home/>}/> */}
             <Route path='home' element={<Home isOpen={isOpen}/>}/>
             <Route path='guide' element={<Guide isOpen={isOpen}/>}/>
-            <Route path='locate' element={<Locate/>}/>
+            <Route path='locate' element={<Locate isOpen={isOpen}/>}/>
+            <Route path='compute' element={<Compute isOpen={isOpen}/>}/>
         </Routes>
     </div>
 </div>
