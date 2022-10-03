@@ -1,10 +1,11 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react';
+import Button from '../components/Button';
 import TopBar from '../components/TopBar';
 
 const Compute = ({isOpen}) => {
     const [ show, setShow ] = useState(false);
-
   return (
     <div className='h-screen bg-[#F2F7F5]'>
         <div className={`duration-500 ${isOpen ? 'w-[calc(100vw-300px)]' : 'w-[calc(100vw-60px)]'}`}>
@@ -44,7 +45,7 @@ const Compute = ({isOpen}) => {
                                     <label className='cursor-pointer text-[#2E6943] font-medium' htmlFor="length">Length:</label>
                                     <input className='bg-[#F2F7F5] outline-none p-2 w-20' type="text"  id='length'/>
                                 </div>
-                                <button className='bg-[#00DDA2] text-white py-2 px-8 mt-3 w-fit self-center'>Compute</button>
+                                <Button className={'w-fit'} text={'Compute'}/>
                             </div>
                         </div>
                         <div>

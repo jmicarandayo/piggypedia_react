@@ -5,7 +5,7 @@ import { IoHomeSharp, IoLocationSharp, IoBookSharp, IoAddOutline } from "react-i
 import { GiWeight } from "react-icons/gi";
 import { MdOutlineDoubleArrow } from "react-icons/md";
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const SideBar = ({isOpen, handleClick}) => {
   return (
@@ -22,7 +22,7 @@ const SideBar = ({isOpen, handleClick}) => {
             </ul>
             <div className='px-4 text-gray-300'>
                 <p className={`duration-500 my-3 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Programs</p>
-                <a href="/" className='flex items-center gap-4'><span><IoAddOutline size={25}/></span><span className={`duration-500 whitespace-nowrap ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Create Program</span></a>
+                <Link to="/new-program" className='flex items-center gap-4'><span><IoAddOutline size={25}/></span><span className={`duration-500 whitespace-nowrap ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Create Program</span></Link>
             </div>
             
         </div>

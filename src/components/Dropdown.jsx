@@ -1,5 +1,6 @@
 import React from 'react'
 import { IoAddOutline, IoPersonSharp, IoLogOutSharp } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 const Dropdown = () => {
   return (
@@ -10,9 +11,11 @@ const Dropdown = () => {
                 <li className='flex items-center gap-2 py-2 px-4 hover:bg-[#F2F7F5]'><IoPersonSharp size={25} className='text-[#00c797]'/> Your details</li>
                 <li className='flex items-center gap-2 py-2 px-4 hover:bg-[#F2F7F5]'><IoLogOutSharp size={25} className='text-[#00c797]'/> Log out</li>
             </ul>
-            <div className='flex gap-4 items-center px-2 py-2 hover:bg-[#F2F7F5]'>
-                <span className='h-[30px] w-[30px] rounded-full text-white bg-[#00c797]'><IoAddOutline size={30}/></span><span>Create a Program</span>
-            </div>
+            <Link to='/new-program'>
+              <div className='flex gap-4 items-center px-2 py-2 hover:bg-[#F2F7F5]'>
+                  <span className='h-[30px] w-[30px] rounded-full text-white bg-[#00c797]'><IoAddOutline size={30}/></span><span>Create a Program</span>
+              </div>
+            </Link>
         </div>
     </div>
   )
