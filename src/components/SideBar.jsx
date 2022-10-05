@@ -20,9 +20,13 @@ const SideBar = ({isOpen, handleClick}) => {
                 <li className=''><NavLink to='/locate' className={({isActive}) => isActive ? 'px-4 flex items-center gap-3 text-white text-md hover:bg-[#2E6943] cursor-pointer py-3 border-r-4 border-[#00BA82] bg-[#2E6943]' : 'px-4 flex items-center gap-3 text-white text-md hover:bg-[#2E6943] cursor-pointer py-3'}><span><IoLocationSharp size={25}/></span><p className={`duration-500 whitespace-nowrap ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Locate Store</p></NavLink></li>
                 <li className=''><NavLink to='/compute' className={({isActive}) => isActive ? 'px-4 flex items-center gap-3 text-white text-md hover:bg-[#2E6943] cursor-pointer py-3 border-r-4 border-[#00BA82] bg-[#2E6943]' : 'px-4 flex items-center gap-3 text-white text-md hover:bg-[#2E6943] cursor-pointer py-3'}><span><GiWeight size={25}/></span><p className={`duration-500 whitespace-nowrap ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Compute Weight</p></NavLink></li>
             </ul>
-            <div className='px-4 text-gray-300'>
-                <p className={`duration-500 my-3 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Programs</p>
-                <Link to="/new-program" className='flex items-center gap-4'><span><IoAddOutline size={25}/></span><span className={`duration-500 whitespace-nowrap ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Create Program</span></Link>
+            <div className=' text-gray-300'>
+                <p className={`duration-500 font-bold px-4 my-3 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Programs</p>
+                <div className='text-sm flex flex-col gap-2'>
+                    <p className='cursor-pointer whitespace-nowrap px-6 py-1 flex items-center gap-2 hover:bg-[#2E6943]' ><span>1 </span><span className={`duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Nursing Piglets</span></p>
+                    <p className='cursor-pointer whitespace-nowrap px-6 py-1 flex items-center gap-2 hover:bg-[#2E6943]' ><span>2 </span><span className={`duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Fattening Piglets</span></p>
+                </div>
+                <Link to="/new-program" className='flex items-center px-4 gap-4 mt-2 hover:text-[#00DDA2]'><span><IoAddOutline size={25}/></span><span className={`whitespace-nowrap ${isOpen ? 'opacity-100 ' : 'opacity-0 duration-500'}`}>Create Program</span></Link>
             </div>
             
         </div>

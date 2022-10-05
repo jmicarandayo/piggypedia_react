@@ -30,7 +30,7 @@ const Home = ({isOpen}) => {
                                 </div>
                             </div>
                         </div>
-                        <div className=''>
+                        <div>
                             <p className='text-gray-400 py-2'>Date June 17, 2022</p>
                             <div className='border-t-2'>
                                 <div className='flex items-center justify-between'>

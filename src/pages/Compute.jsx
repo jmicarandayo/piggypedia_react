@@ -5,7 +5,17 @@ import Button from '../components/Button';
 import TopBar from '../components/TopBar';
 
 const Compute = ({isOpen}) => {
+    const [ weight, setWeight ] = useState(null);
     const [ show, setShow ] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const heartGirth = e.target[0].value;
+        const length = e.target[1].value;
+        const constant = 69.3;
+        setWeight(((heartGirth * heartGirth) * length * constant).toFixed(2))
+    }
+    console.log(weight)
   return (
     <div className='h-screen bg-[#F2F7F5]'>
         <div className={`duration-500 ${isOpen ? 'w-[calc(100vw-300px)]' : 'w-[calc(100vw-60px)]'}`}>
@@ -36,16 +46,19 @@ const Compute = ({isOpen}) => {
                                     <p className='px-4'>This procedure is reported to be accurate to within 3%.</p>
                                 </div>
                             </div>
-                            <div className='flex flex-col ml-20 mt-10'>
-                                <div className='flex justify-between items-center gap-4 mt-2'>
-                                    <label className='cursor-pointer text-[#2E6943] font-medium' htmlFor="girth">Heart Girth:</label>
-                                    <input className='bg-[#F2F7F5] outline-none p-2 w-20' type="text"  id='girth'/>
-                                </div>
-                                <div className='flex justify-between items-center gap-4 mt-2'>
-                                    <label className='cursor-pointer text-[#2E6943] font-medium' htmlFor="length">Length:</label>
-                                    <input className='bg-[#F2F7F5] outline-none p-2 w-20' type="text"  id='length'/>
-                                </div>
-                                <Button className={'w-fit'} text={'Compute'}/>
+                            <div className='relative'>
+                            {weight && <div className='absolute top-0 right-0 bg-[#2E6943] bg-opacity-10 p-2 rounded-sm'>Computed weight: <span className='text-lg text-[#2E6943] font-semibold'>{weight}Kg</span></div>}
+                                <form onSubmit={handleSubmit} className='flex flex-col ml-20 mt-10'>
+                                    <div className='flex justify-between items-center gap-4 mt-2'>
+                                        <label className='cursor-pointer text-[#2E6943] font-medium' htmlFor="girth">Heart Girth(m):</label>
+                                        <input onClick={() => setWeight(null)} className='bg-[#F2F7F5] outline-none p-2 w-20' type="text"  id='girth'/>
+                                    </div>
+                                    <div className='flex justify-between items-center gap-4 mt-2'>
+                                        <label className='cursor-pointer text-[#2E6943] font-medium' htmlFor="length">Length(m):</label>
+                                        <input onClick={() => setWeight(null)} className='bg-[#F2F7F5] outline-none p-2 w-20' type="text"  id='length'/>
+                                    </div>
+                                    <Button className={'w-fit'} text={'Compute'}/>
+                                </form>
                             </div>
                         </div>
                         <div>
