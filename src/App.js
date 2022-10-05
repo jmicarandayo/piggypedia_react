@@ -7,16 +7,28 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import CreateProgram from './pages/CreateProgram'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const App = () => {
   return (
     <div>
         <Routes>
-                <Route path='/*' element={<Layout/>}/>
+                <Route path='/*' element={
+                <ProtectedRoute>
+                  <Layout/>
+                </ProtectedRoute>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/register' element={<Register/>}/>
-                <Route path='/new-program' element={<AddProgram/>}/>        
-                <Route path='/new-program/create' element={<CreateProgram/>}/>        
+                <Route path='/new-program' element={
+                  <ProtectedRoute>
+                    <AddProgram/>
+                  </ProtectedRoute>
+                }/>        
+                <Route path='/new-program/create' element={
+                  <ProtectedRoute>
+                    <CreateProgram/>
+                  </ProtectedRoute>
+                }/>        
         </Routes>
     </div>
   )

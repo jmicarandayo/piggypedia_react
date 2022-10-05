@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react';
 import { IoChevronDownSharp, IoNotifications } from "react-icons/io5";
 import { useLocation } from 'react-router-dom';
 import Dropdown from '../components/Dropdown';
+import { AuthContext } from '../context/AuthContext';
 
 const TopBar = () => {
     const [ openDropdown, setOpenDropdown ] = useState(false);
+    const { currentUser } = useContext(AuthContext)
     const location = useLocation();
     const page = location.pathname.split('/')[1];
 
@@ -19,7 +21,7 @@ const TopBar = () => {
                         <div className='h-[40px] w-[40px] bg-[#F2F7F5] group-hover:bg-white flex justify-center items-center rounded-full'>
                             JD
                         </div>
-                        <span className='ml-2'>John Doe</span>
+                        <span className='ml-2'>{currentUser?.displayName}</span>
                         <IoChevronDownSharp size={20} className={`text-[#2E6943] cursor-pointer duration-200 ml-2 ${openDropdown && '-rotate-180'}`}/>
                         
                     </div>
