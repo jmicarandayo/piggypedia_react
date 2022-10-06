@@ -11,6 +11,10 @@ const TopBar = () => {
     const location = useLocation();
     const page = location.pathname.split('/')[1];
 
+    const getInitials = (user) => {
+        const initials = user?.split(' ').map(x => x[0]).join('')
+        return initials;
+      }
   return (
     <div>
         <div className='flex justify-between items-center bg-white py-4 px-10 shadow-md'>
@@ -19,7 +23,7 @@ const TopBar = () => {
                     <span className='cursor-pointer text-[#00c797]'><IoNotifications size={25}/></span>
                     <div className='hover:bg-[#F2F7F5] group cursor-pointer py-2 px-2 ml-2 text-[#2E6943] flex items-center ' onClick={() => setOpenDropdown(!openDropdown)}>
                         <div className='h-[40px] w-[40px] bg-[#F2F7F5] group-hover:bg-white flex justify-center items-center rounded-full'>
-                            JD
+                            {getInitials(currentUser.displayName)}
                         </div>
                         <span className='ml-2'>{currentUser?.displayName}</span>
                         <IoChevronDownSharp size={20} className={`text-[#2E6943] cursor-pointer duration-200 ml-2 ${openDropdown && '-rotate-180'}`}/>

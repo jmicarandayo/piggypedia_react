@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup  } from 'firebase/auth'
 import { auth } from '../firebase'
 import { FcGoogle } from "react-icons/fc";
 import { GrFacebook } from "react-icons/gr";
@@ -29,6 +29,24 @@ const Register = () => {
             setError(registerErrorCheck(err.message.split(' ').pop()))
         }
     }
+    const signUpWithGoogle = async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+            await signInWithPopup(auth, provider)
+            navigate('/home')
+        } catch(err) {
+            console.log(err)
+        }
+    }
+    const signUpWithFacebook = async () => {
+        const provider = new FacebookAuthProvider();
+        try {
+            await signInWithPopup(auth, provider)
+            navigate('/home')
+        } catch(err) {
+            console.log(err)
+        }
+    }
   return (
     <div className='h-screen w-full flex justify-center items-center'>
         <div className='w-[450px] p-4'>
@@ -36,8 +54,8 @@ const Register = () => {
             <div>
                 <span className='text-gray-400 font-light text-sm'>Create account using</span>
                 <div className='flex justify-between my-4 items-center'>
-                    <button className='border-gray-300 h-[50px] group flex items-center gap-2 border py-3 px-8 sm:px-12 hover:bg-[#4285f4] hover:text-white text-[#4285f4] duration-200'><span className='group-hover:text-white duration-200'><FcGoogle size={25}/></span>Google</button>
-                    <button className='border-gray-300 h-[50px] group flex items-center gap-2 border py-3 px-8 sm:px-12 hover:bg-[#3b5998] hover:text-white text-[#3b5998] duration-200'><span className='text-[#3b5998] group-hover:text-white duration-200'><GrFacebook size={25}/></span>Facebook</button>
+                    <button className='border-gray-300 h-[50px] group flex items-center gap-2 border py-3 px-8 sm:px-12 hover:bg-[#4285f4] hover:text-white text-[#4285f4] duration-200' onClick={signUpWithGoogle}><span className='group-hover:text-white duration-200 w-[30px]'><FcGoogle size={25}/></span>Google</button>
+                    <button className='border-gray-300 h-[50px] group flex items-center gap-2 border py-3 px-8 sm:px-12 hover:bg-[#3b5998] hover:text-white text-[#3b5998] duration-200' onClick={signUpWithFacebook}><span className='text-[#3b5998] group-hover:text-white duration-200 w-[30px]'><GrFacebook size={25}/></span>Facebook</button>
                 </div>
                 <form onSubmit={handleRegister} className='flex flex-col gap-6'>
                     <input onChange={() => setError({})} className='bg-[#ECECEC] outline-none p-3 shadow-md place' type="text" placeholder='Your full name'/>

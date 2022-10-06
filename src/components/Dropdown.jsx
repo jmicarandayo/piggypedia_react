@@ -7,6 +7,7 @@ import { auth } from '../firebase';
 
 const Dropdown = () => {
   const { currentUser } = useContext(AuthContext)
+
   return (
     <div>
         <div className='text-[#2E6943] absolute bg-white left-auto right-0 w-[240px] py-4 px-2 mt-[45px] shadow-md rounded-md'>
